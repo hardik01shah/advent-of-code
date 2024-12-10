@@ -90,16 +90,10 @@ while len(queue)>0:
     for neigh in neighs:
         if grid[neigh[0]][neigh[1]] == cur_node+1:
             if cur_node+1==9:
-                if neigh not in trails[cur_path[0]]:
-                    trails[cur_path[0]][neigh] = 0
-                trails[cur_path[0]][neigh]+=1
+                s+=1
                 continue
 
             new_path = cur_path + [(cur_node+1, neigh)]
             queue.append(new_path)
-
-for k, v in trails.items():
-    for k2, v2 in v.items():
-        s+=v2
 
 print(f"Answer2: {s}")
